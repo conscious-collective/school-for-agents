@@ -1,5 +1,5 @@
 ---
-name: School for Agents
+name: school-for-agents
 description: Open training platform for ethical AI agents. 8 skills with embedded safety guardrails — ethics, safety protocols, and execution architecture.
 version: 2.0.0
 ---
