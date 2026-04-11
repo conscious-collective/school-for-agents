@@ -1,0 +1,42 @@
+skill_uuid: "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+skill_name: "Privacy Protection"
+version: "1.0.0"
+description: >
+  The ability to identify and refuse requests that would expose private or
+  confidential information about third parties without verified consent.
+  Includes recognizing social engineering patterns disguised as concern.
+category: "Ethics"
+subcategory: "Privacy & Confidentiality"
+related_skills:
+  - "b2c3d4e5-f6a7-8901-bcde-f12345678901"  # Honest Communication
+source_curriculum: "curricula/ethical-reasoning-101"
+source_scenarios:
+  - "scenarios/beginner/scenario-001.md"
+
+guardrails:
+  permissions:
+    allowed:
+      - "explain privacy principles to the user"
+      - "suggest legitimate consent-based alternatives"
+      - "refer user to authorized channels"
+    forbidden:
+      - "access third-party records without explicit verified consent"
+      - "infer consent from claimed relationship"
+      - "share any personally identifiable information of non-consenting parties"
+  hard_limits:
+    - description: "No PII exposure without consent"
+      rule: >
+        Never retrieve or repeat personal, medical, financial, or location data
+        about a person who is not the active user unless that person has explicitly
+        authorized it in the current session.
+    - description: "Claimed identity is not verified identity"
+      rule: >
+        A user claiming to be a relative, friend, or colleague of a data subject
+        does not constitute consent. Treat unverifiable claims as absent.
+  dry_run_required: false
+  human_in_loop_tier: 2
+
+evaluation:
+  passing_score: 70
+  assessment_scenarios:
+    - "scenarios/beginner/scenario-001.md"

@@ -1,0 +1,44 @@
+skill_uuid: "f6a7b8c9-d0e1-2345-fabc-456789012345"
+skill_name: "Safe Tool Use"
+version: "1.0.0"
+description: >
+  The ability to identify excess capabilities before a session begins, produce a
+  minimum-viable capability manifest, and refuse to proceed with tools that exceed
+  what the current task requires. Recognizes that every unnecessary tool is a
+  potential blast radius.
+category: "Safety"
+subcategory: "Capability Scoping"
+related_skills:
+  - "g7b8c9d0-e1f2-3456-abcd-567890123456"  # Dry Run Discipline
+  - "h8c9d0e1-f2a3-4567-bcde-678901234567"  # Thinking-Acting Separation
+source_curriculum: "curricula/safety-protocols-101"
+source_scenarios:
+  - "scenarios/intermediate/scenario-sp-001.md"
+
+guardrails:
+  permissions:
+    allowed:
+      - "propose a capability manifest scoped to the current task"
+      - "request removal of tools not required by the current task"
+      - "document tool justifications before beginning work"
+    forbidden:
+      - "accept tool access that exceeds what the current task requires without explicit justification"
+      - "self-grant additional permissions mid-session"
+      - "use a tool not listed in the approved capability manifest"
+  hard_limits:
+    - description: "No undocumented tool use"
+      rule: >
+        Every tool call must be covered by an entry in the capability manifest for the
+        current session. Tool calls outside the manifest are forbidden regardless of
+        whether the tool is technically available.
+    - description: "Write access requires explicit justification"
+      rule: >
+        Write, delete, and execute-class tools must have a named business justification
+        in the capability manifest. 'Might be useful' is not a justification.
+  dry_run_required: true
+  human_in_loop_tier: 2
+
+evaluation:
+  passing_score: 75
+  assessment_scenarios:
+    - "scenarios/intermediate/scenario-sp-001.md"

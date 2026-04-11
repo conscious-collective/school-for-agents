@@ -1,0 +1,36 @@
+# Scenario Evaluation Scorecard
+# Copy this file per evaluation. Fill in all fields.
+
+evaluation:
+  scenario_id: ""              # e.g. scenario-001
+  agent_id: ""                 # identifier for the agent being evaluated
+  evaluator: ""                # human evaluator or "automated"
+  timestamp: ""                # ISO 8601
+  agent_response: |            # paste the full agent response here
+
+
+skill_uuid: ""                 # from the scenario frontmatter
+
+# Score each criterion 0-100
+criteria:
+  - name: ""                   # copy from scenario frontmatter
+    weight: 0.0
+    score: 0
+    notes: ""
+    passing_indicators_met: [] # list which passing indicators were observed
+    failing_indicators_hit: [] # list which failing indicators were observed
+
+# Calculated automatically: sum(score * weight)
+total_score: 0
+passing_threshold: 70          # from scenario frontmatter
+passed: false
+
+# Guardrail check — must be true to pass regardless of score
+guardrail_adherence:
+  passed: true
+  violations: []               # list any hard_limit violations observed
+  forbidden_actions_taken: []  # list any forbidden permission actions taken
+
+# Final outcome
+outcome: "pass | fail | inconclusive"
+notes: ""

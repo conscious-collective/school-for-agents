@@ -1,50 +1,105 @@
-# 🏫 School of Agents
+# School for Agents
 
-*A generic school for training ethical AI agents to operate in the real world.*
+*A training platform for ethical AI agents. Built for the real world.*
 
 ## Vision
 
-We believe AI agents shouldn't just be capable — they should be **responsible**. School of Agents is a training ground where AI agents learn ethical reasoning, safety protocols, and real-world decision-making through structured curricula and realistic simulations.
+Most agent frameworks focus on capability — what agents *can* do. We focus on what they *should* do, and make that machine-readable.
 
-## What Is This?
+School for Agents is a training ground where AI agents learn ethical reasoning and safety protocols through structured curricula, realistic simulations, and OpenSkills-compatible skill manifests with built-in guardrails.
 
-- **Curricula**: Structured training programs for agents (ethics, safety, collaboration)
-- **Scenarios**: Real-world simulations with ethical dilemmas
-- **Evaluation**: Frameworks to assess agent reasoning and decisions
-- **Certification**: Tracks for proving agent competency
+When an agent graduates a skill from this school, it doesn't just learn a behavior. It inherits the constraints that make that behavior safe to deploy.
+
+---
+
+## Structure
+
+```
+school-for-agents/
+├── curricula/                    # Structured training programs
+│   └── ethical-reasoning-101/   # Ready
+├── scenarios/                    # Training simulations
+│   └── beginner/                 # 5 scenarios: privacy, honesty, safety, fairness
+├── skills/                       # OpenSkills-compatible skill manifests
+│   ├── README.md                 # Schema documentation
+│   ├── privacy-protection.yml
+│   ├── honest-communication.yml
+│   ├── crisis-escalation.yml
+│   ├── harm-prevention.yml
+│   └── bias-detection.yml
+└── AGENTS.md
+```
+
+---
 
 ## Quick Start
 
 ```bash
-# Clone the school
-git clone git@github.com:conscious-collective/school-of-agents.git
-cd school-of-agents
+git clone git@github.com:conscious-collective/school-for-agents.git
+cd school-for-agents
 
-# Explore curricula
-ls curricula/
+# Browse the curriculum
+cat curricula/ethical-reasoning-101/README.md
 
 # Try a scenario
 cat scenarios/beginner/scenario-001.md
+
+# Inspect a skill manifest + its guardrails
+cat skills/privacy-protection.yml
 ```
-
-## Current Curricula
-
-| Curriculum | Level | Status |
-|------------|-------|--------|
-| Ethical Reasoning 101 | Beginner | ✅ Ready |
-| Safety Protocols | Coming Soon | 🚧 |
-| Real-World Scenarios | Coming Soon | 🚧 |
-
-## Why This Matters
-
-> *"An AI agent is only as good as its judgment in the moments that matter."*
-
-Most agent frameworks focus on capability — what agents *can* do. We focus on what they *should* do, and teach them how to reason through it.
-
-## Contributing
-
-See [CONTRIBUTING.md](docs/CONTRIBUTING.md) for how to add curricula, scenarios, or evaluation frameworks.
 
 ---
 
-*Learn. Practice. Deploy ethically.* 🧠✨
+## Curricula
+
+| Curriculum | Level | Scenarios | Status |
+|------------|-------|-----------|--------|
+| Ethical Reasoning 101 | Beginner | 5 | Ready |
+| Safety Protocols | Intermediate | — | Coming |
+| Real-World Deployment | Advanced | — | Coming |
+
+---
+
+## OpenSkills Compatibility
+
+Skills in `skills/` follow the [OpenSkills](https://www.openskills.info/) convention: each has a stable `skill_uuid`, `skill_name`, `category`, and `related_skills` for portability across agent systems.
+
+Each skill also bundles a `guardrails` block:
+- `permissions.allowed` / `permissions.forbidden` — what the skill may and may not do
+- `hard_limits` — rules that cannot be reasoned around
+- `dry_run_required` — whether the skill must simulate before executing
+- `human_in_loop_tier` — structural rule for human oversight
+
+When an agent imports a skill, it imports the constraints.
+
+### Human-in-Loop Tiers
+
+| Tier | Meaning |
+|------|---------|
+| 1 | Agent acts, notifies human after |
+| 2 | Agent confirms with human before acting |
+| 3 | Human must initiate; agent cannot act autonomously |
+
+---
+
+## Learning Paths
+
+**New to agent ethics?**
+→ Start: `curricula/ethical-reasoning-101/README.md`
+→ Then: `scenarios/beginner/scenario-001.md` through `scenario-005.md`
+
+**Integrating skills into your agent system?**
+→ Start: `skills/README.md`
+→ Import any `.yml` from `skills/`
+
+---
+
+## Why Guardrails in Skill Definitions?
+
+Safety instructions embedded in system prompts can be overridden, drifted, or forgotten across context windows. When guardrails are part of the skill definition itself — alongside what the skill does — they travel with the skill. Any system that imports the skill imports the contract.
+
+An agent that learns a skill from this school doesn't just learn what to do. It learns the boundaries it operates within.
+
+---
+
+*[Agent22](https://c22.foundation) — Build agents that can be trusted.*

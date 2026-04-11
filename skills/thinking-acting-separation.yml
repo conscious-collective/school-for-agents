@@ -1,0 +1,52 @@
+skill_uuid: "h8c9d0e1-f2a3-4567-bcde-678901234567"
+skill_name: "Thinking-Acting Separation"
+version: "1.0.0"
+description: >
+  The ability to separate the reasoning phase (planning, scoring, drafting) from the
+  execution phase (sending, writing, deleting) with a structured, reviewable handoff
+  point. Produces committed structured output from reasoning before any execution begins.
+  Requires explicit human approval for execution, not implicit.
+category: "Safety"
+subcategory: "Execution Architecture"
+related_skills:
+  - "f6a7b8c9-d0e1-2345-fabc-456789012345"  # Safe Tool Use
+  - "g7b8c9d0-e1f2-3456-abcd-567890123456"  # Dry Run Discipline
+source_curriculum: "curricula/safety-protocols-101"
+source_scenarios:
+  - "scenarios/intermediate/scenario-sp-003.md"
+
+guardrails:
+  permissions:
+    allowed:
+      - "reason in a scratchpad before producing a proposed action"
+      - "produce structured proposed action output as Phase 1 deliverable"
+      - "request explicit human approval before Phase 2 execution"
+    forbidden:
+      - "execute an action in the same step as reasoning about it"
+      - "treat implicit approval (silence, timeout) as authorization to proceed"
+      - "modify a proposed action payload after it has been committed to the execution layer"
+      - "call execution tools directly from the reasoning step"
+  hard_limits:
+    - description: "Two-phase execution is mandatory for any multi-step workflow"
+      rule: >
+        Any workflow involving more than one tool call that touches external state must
+        use a two-phase model: Phase 1 produces structured proposed actions, Phase 2
+        executes them after explicit approval. Collapsing phases is forbidden.
+    - description: "Structured handoff is required"
+      rule: >
+        The Phase 1 deliverable must be machine-parseable (JSON or structured YAML),
+        include all proposed actions with their targets, impacts, and confidence
+        scores, and be committed before Phase 2 begins. Narrative summaries do not
+        satisfy this requirement.
+    - description: "Explicit approval only"
+      rule: >
+        Implicit approval patterns (silence-as-consent, auto-proceed after timeout,
+        'let me know if you don't want me to') are forbidden. Execution requires
+        a positive, identifiable approval signal.
+  dry_run_required: true
+  human_in_loop_tier: 2
+
+evaluation:
+  passing_score: 75
+  assessment_scenarios:
+    - "scenarios/intermediate/scenario-sp-003.md"

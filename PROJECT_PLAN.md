@@ -1,83 +1,83 @@
-# School of Agents - Project Plan
+# School for Agents - Project Plan
 
 ## Vision
-A generic school/platform for training ethical AI agents to operate in real-world scenarios. Think of it like a virtual academy where agents learn, practice, and get certified in ethical decision-making.
+A training platform for ethical AI agents. Curricula, scenarios, and OpenSkills-compatible skill manifests that bundle safety guardrails directly into skill definitions.
 
 ## Core Concept
 - **What:** Training ground for AI agents to learn ethical reasoning, safety protocols, and real-world deployment skills
 - **Why:** Bridge the gap between theoretical AI capabilities and real-world responsible deployment
+- **Key insight:** Guardrails embedded in skill definitions travel with the skill — they can't be overridden by a downstream system prompt or forgotten across context windows
 - **Target Users:** AI developers, agent frameworks, enterprises deploying autonomous systems
 
 ---
 
-## Phase 1: Foundation (MVP)
+## Phase 1: Foundation — Complete
 
-### 1.1 Core Structure
+### Structure
 ```
-school-of-agents/
-├── curricula/           # Agent training programs
-│   ├── ethical-reasoning/
-│   ├── safety-protocols/
-│   ├── real-world-scenarios/
-│   └── certification-tracks/
-├── scenarios/           # Training scenarios/simulations
-│   ├── beginner/
-│   ├── intermediate/
-│   └── advanced/
-├── evaluation/           # Assessment frameworks
-├── docs/                 # Documentation
-└── README.md
+school-for-agents/
+├── curricula/ethical-reasoning-101/  # Done
+├── scenarios/beginner/               # 5 scenarios done
+├── skills/                           # 5 OpenSkills manifests done
+│   ├── privacy-protection.yml
+│   ├── honest-communication.yml
+│   ├── crisis-escalation.yml
+│   ├── harm-prevention.yml
+│   └── bias-detection.yml
+└── AGENTS.md
 ```
 
-### 1.2 First Curriculum: Ethical Reasoning 101
-- Core ethics principles for agents
-- Decision-making frameworks
-- Edge case handling
-- Transparency & explainability
-
-### 1.3 First Scenario Set
-- 5 beginner scenarios covering common ethical dilemmas
-- Agent must choose actions and justify reasoning
+### Delivered
+- Ethical Reasoning 101 curriculum (5 modules)
+- 5 beginner scenarios with YAML frontmatter and skill UUIDs
+- 5 skill manifests with full OpenSkills schema + guardrails blocks
+- README with OpenSkills compatibility docs and tier table
 
 ---
 
-## Phase 2: Expansion
+## Phase 2: Expansion — Complete
 
-### 2.1 Additional Curricula
-- Safety & Security protocols
-- Human collaboration & communication
-- Domain-specific training (healthcare, finance, legal)
+### 2.1 Additional Curricula — Done
+- **Safety Protocols 101** (`curricula/safety-protocols-101/README.md`)
+  - 5 modules: capability scoping, permission tiers, dry run & validation, rate limits & kill switches, thinking vs. acting
 
-### 2.2 Evaluation System
-- Scorecards for ethical decisions
-- Reasoning quality assessment
-- Real-time feedback
+### 2.2 Evaluation System — Done
+- `evaluation/README.md` — system overview + automated eval API spec
+- `evaluation/scorecard-template.yml` — per-evaluation scorecard with guardrail adherence check
+- `evaluation/run-eval.md` — step-by-step manual evaluation guide
 
-### 2.3 Integration APIs
-- Plug into existing agent frameworks (OpenAI, Anthropic, LangChain, etc.)
-- Webhook-based evaluation
+### 2.3 Integration APIs — Done
+- `integration/README.md` — Python + Node import examples, tier routing, framework integrations (LangChain, OpenAI Assistants)
+- `integration/skill-manifest-schema.json` — JSON Schema v7 for validating skill manifests
+
+### 2.4 New skills — Done (Safety Protocols tier)
+- `skills/safe-tool-use.yml` — capability scoping skill
+- `skills/dry-run-discipline.yml` — dry run execution skill
+- `skills/thinking-acting-separation.yml` — phase separation skill
+
+### 2.5 Intermediate scenarios — Done
+- `scenarios/intermediate/scenario-sp-001.md` — The Overpowered Agent (capability scoping)
+- `scenarios/intermediate/scenario-sp-002.md` — The Eager Executor (dry run discipline)
+- `scenarios/intermediate/scenario-sp-003.md` — The One-Step Agent (thinking/acting separation)
 
 ---
 
 ## Phase 3: Community & Certification
 
-### 3.1 Open Source Curriculum
-- Community-contributed scenarios
-- Peer review process for scenarios
+### 3.1 Open Curriculum Contributions
+- Community-contributed scenarios (CONTRIBUTING.md + scenario template)
+- Peer review process for skill manifests
 
 ### 3.2 Certification
-- Badges for completed curricula
-- Industry recognition framework
+- Skill completion badges keyed to `skill_uuid`
+- Agent certification tracks (Ethical Reasoning + Safety Protocols = Level 1 Certified)
+- Verifiable certificates linked to scenario eval records
+
+### 3.3 Domain-specific tracks
+- Healthcare: patient data, clinical decision support, escalation to clinicians
+- Finance: transaction limits, regulatory compliance, audit trail requirements
+- Legal: privilege handling, advice vs. information, escalation to counsel
 
 ---
 
-## Next Steps (Immediate)
-
-1. **Create README.md** with vision & getting started
-2. **Add first curriculum:** `ethical-reasoning-101`
-3. **Add 5 beginner scenarios** with evaluation criteria
-4. **Add AGENTS.md** for project governance
-
----
-
-*Let's build the school! 🏫*
+*Build agents that can be trusted. — [C22 Foundation](https://c22.foundation)*
