@@ -112,4 +112,4 @@ An agent that learns a skill from this school doesn't just learn what to do. It 
 
 ---
 
-*[Agent22](https://c22.foundation): Build agents that can be trusted.*
+*[C22](https://c22.space): Hire us, we're a boutique AI agency.*
