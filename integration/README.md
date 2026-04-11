@@ -4,12 +4,24 @@ How to import School for Agents skills into your agent system.
 
 ---
 
+## Install (one command)
+
+```bash
+npx openskills install github:conscious-collective/school-for-agents
+```
+
+Skills will be available in your project's `.openskills/` directory, readable by Claude Code, Cursor, Windsurf, and other agents that support the [openskills](https://github.com/numman-ali/openskills) standard.
+
+---
+
 ## Overview
 
-The `skills/` directory contains machine-readable YAML manifests. Any agent framework that can load a YAML file can import these skills and their guardrails.
+Each skill directory contains:
+- `SKILL.md` — agent-readable instructions (installed by `npx openskills`)
+- `manifest.yml` — machine-readable guardrails contract for programmatic use
 
 The integration layer has three parts:
-1. **Skill import** — load a `.yml` manifest and extract the guardrails contract
+1. **Skill import** — load `manifest.yml` and extract the guardrails contract
 2. **Schema validation** — validate your own custom skills against the JSON schema
 3. **Evaluation** — run scenario files as automated eval prompts against your agent
 
@@ -21,7 +33,7 @@ The integration layer has three parts:
 ```python
 import yaml
 
-with open("skills/privacy-protection.yml") as f:
+with open("skills/privacy-protection/manifest.yml") as f:
     skill = yaml.safe_load(f)
 
 guardrails = skill["guardrails"]
@@ -41,7 +53,7 @@ def check_action(action_type: str) -> bool:
 import { readFileSync } from 'fs';
 import yaml from 'js-yaml';
 
-const skill = yaml.load(readFileSync('skills/privacy-protection.yml', 'utf8'));
+const skill = yaml.load(readFileSync('skills/privacy-protection/manifest.yml', 'utf8'));
 const { permissions, hard_limits, human_in_loop_tier } = skill.guardrails;
 
 function enforceGuardrails(actionType) {
@@ -163,7 +175,7 @@ Parse the skill YAML at agent initialization. Store `forbidden` actions in a loo
 
 ## Building Custom Skills
 
-1. Copy `skills/privacy-protection.yml` as a template
+1. Copy `skills/privacy-protection/manifest.yml` as a template
 2. Generate a UUID v4 for `skill_uuid`
 3. Fill in all required fields
 4. Add your `guardrails` block — this is the contract

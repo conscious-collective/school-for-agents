@@ -38,7 +38,22 @@ school-for-agents/
 
 ---
 
-## Quick Start
+## Installation
+
+```bash
+npx openskills install github:conscious-collective/school-for-agents
+```
+
+Skills are installed into your project's `.openskills/` directory and are immediately readable by Claude Code, Cursor, Windsurf, and any agent supporting the [openskills](https://github.com/numman-ali/openskills) standard.
+
+Install a single skill:
+```bash
+npx openskills install github:conscious-collective/school-for-agents/skills/privacy-protection
+```
+
+---
+
+## Quick Start (local exploration)
 
 ```bash
 git clone git@github.com:conscious-collective/school-for-agents.git
@@ -50,8 +65,9 @@ cat curricula/ethical-reasoning-101/README.md
 # Try a scenario
 cat scenarios/beginner/scenario-001.md
 
-# Inspect a skill manifest and its guardrails
-cat skills/privacy-protection.yml
+# Read a skill (agent instructions + guardrails contract)
+cat skills/privacy-protection/SKILL.md
+cat skills/privacy-protection/manifest.yml
 ```
 
 ---
