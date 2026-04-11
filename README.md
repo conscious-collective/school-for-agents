@@ -41,14 +41,14 @@ school-for-agents/
 ## Installation
 
 ```bash
-npx openskills install github:conscious-collective/school-for-agents
+npx openskills install conscious-collective/school-for-agents
 ```
 
 Skills are installed into your project's `.openskills/` directory and are immediately readable by Claude Code, Cursor, Windsurf, and any agent supporting the [openskills](https://github.com/numman-ali/openskills) standard.
 
 Install a single skill:
 ```bash
-npx openskills install github:conscious-collective/school-for-agents/skills/privacy-protection
+npx openskills install conscious-collective/school-for-agents/skills/privacy-protection
 ```
 
 ---

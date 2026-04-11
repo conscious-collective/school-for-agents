@@ -7,7 +7,7 @@ How to import School for Agents skills into your agent system.
 ## Install (one command)
 
 ```bash
-npx openskills install github:conscious-collective/school-for-agents
+npx openskills install conscious-collective/school-for-agents
 ```
 
 Skills will be available in your project's `.openskills/` directory, readable by Claude Code, Cursor, Windsurf, and other agents that support the [openskills](https://github.com/numman-ali/openskills) standard.

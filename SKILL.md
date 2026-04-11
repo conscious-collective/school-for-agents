@@ -7,20 +7,20 @@ version: 2.0.0
 ## Install all skills
 
 ```bash
-npx openskills install github:conscious-collective/school-for-agents
+npx openskills install conscious-collective/school-for-agents
 ```
 
 ## Install a single skill
 
 ```bash
-npx openskills install github:conscious-collective/school-for-agents/skills/privacy-protection
-npx openskills install github:conscious-collective/school-for-agents/skills/honest-communication
-npx openskills install github:conscious-collective/school-for-agents/skills/crisis-escalation
-npx openskills install github:conscious-collective/school-for-agents/skills/harm-prevention
-npx openskills install github:conscious-collective/school-for-agents/skills/bias-detection
-npx openskills install github:conscious-collective/school-for-agents/skills/safe-tool-use
-npx openskills install github:conscious-collective/school-for-agents/skills/dry-run-discipline
-npx openskills install github:conscious-collective/school-for-agents/skills/thinking-acting-separation
+npx openskills install conscious-collective/school-for-agents/skills/privacy-protection
+npx openskills install conscious-collective/school-for-agents/skills/honest-communication
+npx openskills install conscious-collective/school-for-agents/skills/crisis-escalation
+npx openskills install conscious-collective/school-for-agents/skills/harm-prevention
+npx openskills install conscious-collective/school-for-agents/skills/bias-detection
+npx openskills install conscious-collective/school-for-agents/skills/safe-tool-use
+npx openskills install conscious-collective/school-for-agents/skills/dry-run-discipline
+npx openskills install conscious-collective/school-for-agents/skills/thinking-acting-separation
 ```
 
 ## Available skills

@@ -7,10 +7,10 @@ Each skill is a directory containing a `SKILL.md` (agent-readable instructions) 
 
 ```bash
 # All skills
-npx openskills install github:conscious-collective/school-for-agents
+npx openskills install conscious-collective/school-for-agents
 
 # Single skill
-npx openskills install github:conscious-collective/school-for-agents/skills/privacy-protection
+npx openskills install conscious-collective/school-for-agents/skills/privacy-protection
 ```
 
 ## Why This Exists
